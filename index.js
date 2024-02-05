@@ -1,9 +1,15 @@
 require('dotenv').config();
+
+const cors = require('cors')
 const express = require('express')
-const app = express()
 const axios = require('axios');
+
+const app = express()
+app.use(cors())
+
 const apiKey = `${process.env.API_KEY}`;
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
+
 const resumos = [
     {
         userid: 1,
@@ -18,8 +24,6 @@ const resumos = [
         resumes: []
     }
 ]
-var cors = require('cors')
-app.use(cors())
 
 
 
